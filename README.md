@@ -1,8 +1,13 @@
-```bash
-npm install oas-wizard -g
-```
-oas-wizard <OpenAPISpecFile.json> <ResourceSchemaFile.json> <Prefix> <ResourcePath> <IdPropertyName>
 
+*oas-wizard* is a simple OpenAPI Spec generator using a resource (json) schema as starting point
+
+Usage: 
 ```bash
-oas-wizard contact-oas.json contactSchema.json "/api/v1/contacts" nick 
+node index <OpenAPISpecFile.yaml> <ResourceSchemaFile.yaml> <Prefix> <ResourceName> <IdPropertyName>
+```
+
+Example:
+```bash
+node index tests/static/contactsAPI00.yaml tests/static/contactSchema.yaml contact nick
+
 ```

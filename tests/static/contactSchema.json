@@ -1,0 +1,17 @@
+{
+    "type": "object",
+    "required": [
+        "nick"
+    ],
+    "properties": {
+        "nick": {
+            "type": "string"
+        },
+        "phone": {
+            "type": "string"
+        },
+        "email": {
+            "type": "string"
+        }
+    }
+}

@@ -13,7 +13,7 @@ info:
     name: MIT
     url: 'http: //opensource.org/licenses/MIT'
 paths:
-  /api/v1/{{resources}}:
+  "/api/v1/{{resources}}":
     get:
       description: Returns all {{resources}} 
       operationId: get{{Resources}}
@@ -56,8 +56,7 @@ paths:
               $ref: '#/components/schemas/{{resource}}'
         description: {{Resource}} to be created
         required: true
-  '/api/v1/{{resources}}/{{{resourceId}}}
-}':
+  "/api/v1/{{resources}}/_#{#_{{resourceId}}_#}#_":
     get:
       description: >-
         Returns a {{resource}} by nick
