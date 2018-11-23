@@ -1,0 +1,147 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Contactlist
+  description: >-
+    A sample API that uses a contactlist as an example to demonstrate features
+    in the sla4oai specification  
+  contact:
+    name: PabloFM
+    email: pablofm@us.es
+    url: "http://www.isa.us.es
+  license:
+    name: MIT
+    url: 'http://opensource.org/licenses/MIT'
+paths:
+  /api/v1/contacts:
+    get:
+      description: Returns all contacts 
+      operationId: getContacts
+      responses:
+        '200':
+          description: Contact List
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/contact'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorModel'
+    post:
+      description: Creates a new contact
+      operationId: addContact
+      responses:
+        '200':
+          description: contact response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/contact'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorModel'
+      requestBody:
+        x-name: contact
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/contact'
+        description: Contact to be created
+        required: true
+  '/api/v1/contacts/{nick}':
+    get:
+      description: >-
+        Returns a contact by nick
+      operationId: findcontactByNick
+      parameters:
+        - name: nick
+          in: path
+          description: nick of contact to fetch
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Contact returned
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/contact'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorModel'
+    delete:
+      description: deletes a single contact based on the nick
+      operationId: deleteContact
+      parameters:
+        - name: nick
+          in: path
+          description: ID of contact to delete
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: contact deleted
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorModel'
+    put:
+      description: Update a contact based on its nick
+      operationId: updateContact
+      parameters:
+        - name: nick
+          in: path
+          description: ID of contact to put
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: contact deleted
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorModel'
+components:
+  schemas:
+    contact:
+      type: object
+      required:
+        - nick
+        - phone
+        - email
+      properties:
+        nick:
+          type: string
+        phone:
+          type: string
+        email:
+          type: string
+    errorModel:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string

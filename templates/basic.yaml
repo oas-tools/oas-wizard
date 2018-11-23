@@ -1,0 +1,135 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: {{Resource}} list
+  description: >-
+    A sample API that uses a contactlist as an example to demonstrate features
+    in the sla4oai specification  
+  contact:
+    name: PabloFM
+    email: pablofm@us.es
+    url: "http://www.isa.us.es"
+  license:
+    name: MIT
+    url: 'http: //opensource.org/licenses/MIT'
+paths:
+  /api/v1/{{resources}}:
+    get:
+      description: Returns all {{resources}} 
+      operationId: get{{Resources}}
+      responses:
+        '200':
+          description: {{Resource}} List
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/{{resource}}'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorModel'
+    post:
+      description: Creates a new {{resource}}
+      operationId: add{{Resource}}
+      responses:
+        '200':
+          description: {{resource}} response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/{{resource}}'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorModel'
+      requestBody:
+        x-name: {{resource}}
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/{{resource}}'
+        description: {{Resource}} to be created
+        required: true
+  '/api/v1/{{resources}}/{{{resourceId}}}
+}':
+    get:
+      description: >-
+        Returns a {{resource}} by nick
+      operationId: findcontactByNick
+      parameters:
+        - name: {{resourceId}}
+          in: path
+          description: nick of {{resource}} to fetch
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: {{Resource}} returned
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/{{resource}}'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorModel'
+    delete:
+      description: deletes a single {{resource}} based on the nick
+      operationId: delete{{Resource}}
+      parameters:
+        - name: {{resourceId}}
+          in: path
+          description: ID of {{resource}} to delete
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: {{resource}} deleted
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorModel'
+    put:
+      description: Update a {{resource}} based on its nick
+      operationId: update{{Resource}}
+      parameters:
+        - name: {{resourceId}}
+          in: path
+          description: ID of {{resource}} to put
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: {{resource}} deleted
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorModel'
+components:
+  schemas:
+    errorModel:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
