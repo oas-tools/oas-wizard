@@ -13,12 +13,12 @@ node index tests/static/contact/contactOAS000.yaml tests/static/contact/contactS
 ```
 
 This tool is expected to be used in combination with others; as an example we propose the following lifecycle:
- - Think about an example of data in json
- - Extract the example schema (using tools such as https://www.jsonschema.net/ ).
- - Transform json into yaml (using tools such as https://www.json2yaml.com/ ).
- - Use *oas-wizard* to generate the OAS spec.
- - Generate a server scaffolding with  https://www.npmjs.com/package/oas-generator 
- - Implement the controllers for each operation.
- - Enjoy your API
+ 1. Think about an example of resource in json
+ 2. Extract the example schema (using tools such as https://www.jsonschema.net/ ).
+ 3. Transform json into yaml (using tools such as https://www.json2yaml.com/ ).
+ 4. Use *oas-wizard* to generate the OAS spec.
+ 5. Generate a server scaffolding with  https://www.npmjs.com/package/oas-generator 
+ 6. Implement the controllers for each operation.
+ 7. Enjoy your API
  
  
