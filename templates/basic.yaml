@@ -3,8 +3,7 @@ info:
   version: 1.0.0
   title: {{Resource}} list
   description: >-
-    A sample API that uses a contactlist as an example to demonstrate features
-    in the sla4oai specification  
+   This is an OpenAPI Specification created by oas-wizard (https://github.com/pafmon/oas-wizard)  
   contact:
     name: PabloFM
     email: pablofm@us.es
