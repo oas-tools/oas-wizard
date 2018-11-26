@@ -58,12 +58,12 @@ paths:
   "/api/v1/{{resources}}/_#{#_{{resourceId}}_#}#_":
     get:
       description: >-
-        Returns a {{resource}} by nick
-      operationId: findcontactByNick
+        Returns a {{resource}} by {{resourceId}}
+      operationId: find{{Resource}}By{{resourceId}}
       parameters:
         - name: {{resourceId}}
           in: path
-          description: nick of {{resource}} to fetch
+          description: {{resourceId}} of {{resource}} to fetch
           required: true
           schema:
             type: string
@@ -81,7 +81,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/errorModel'
     delete:
-      description: deletes a single {{resource}} based on the nick
+      description: deletes a single {{resource}} based on the {{resourceId}}
       operationId: delete{{Resource}}
       parameters:
         - name: {{resourceId}}
@@ -100,7 +100,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/errorModel'
     put:
-      description: Update a {{resource}} based on its nick
+      description: Update a {{resource}} based on its {{resourceId}}
       operationId: update{{Resource}}
       parameters:
         - name: {{resourceId}}
