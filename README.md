@@ -18,4 +18,3 @@ This tool is expected to be used in combination with others; as an example we pr
  - Implement the controllers for each operation.
  - Enjoy your API!
  
- 
