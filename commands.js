@@ -1,6 +1,7 @@
 const fs = require('fs');
 const mustache = require('mustache');
 const yaml = require("js-yaml");
+const jsonSchemaGenerator = require('json-schema-generator');
 
 const template = fs.readFileSync('./templates/basic.yaml', "utf8");
 
@@ -8,9 +9,9 @@ const template = fs.readFileSync('./templates/basic.yaml', "utf8");
  * @function  [createOAS]
  * @returns {int} Result Status: 0 (OK)
  */
-const createOAS = (oasFileName, resourceSchemaFileName, resourceName, idPropertyName) => {
+const createOAS = (oasFileName, ResourceSampleFileName, resourceName, idPropertyName) => {
     console.log("Creating " + oasFileName + "...");
-    console.log("  - Schema File: '" + resourceSchemaFileName + "'");
+    console.log("  - Sample File: '" + ResourceSampleFileName + "'");
     console.log("  - Resource name: '" + resourceName + "'");
     console.log("  - idPropertyName: '" + idPropertyName + "'");
 
@@ -31,7 +32,10 @@ const createOAS = (oasFileName, resourceSchemaFileName, resourceName, idProperty
 
     var oas = yaml.load(output);
 
-    const resourceSchema = yaml.load(fs.readFileSync(resourceSchemaFileName));
+    const resourceSchema = jsonSchemaGenerator(yaml.load(fs.readFileSync(ResourceSampleFileName)));
+
+    // Fix to remove "$schema" attribute in order to have compatibility with oas-generator OAS schema
+    delete resourceSchema["$schema"];
 
     oas.components.schemas[resourceName] = resourceSchema;
 

@@ -11,10 +11,10 @@ program
     .description(package.name + ": " + package.description);
 
 program
-    .usage('<OpenAPISpecFile.yaml> <ResourceSchemaFile.yaml> <ResourceName> <IdPropertyName>')
-    .arguments('<oasFileName> <resourceSchemaFileName> <resourceName> <idPropertyName>')
-    .action((oasFileName, resourceSchemaFileName, resourceName, idPropertyName) => {
-        createOAS(oasFileName, resourceSchemaFileName, resourceName, idPropertyName);
+    .usage('<OpenAPISpecFile.yaml> <ResourceSample.yaml> <ResourceName> <IdPropertyName>')
+    .arguments('<oasFileName> <ResourceSampleFileName> <resourceName> <idPropertyName>')
+    .action((oasFileName, ResourceSampleFileName, resourceName, idPropertyName) => {
+        createOAS(oasFileName, ResourceSampleFileName, resourceName, idPropertyName);
     });
 
 

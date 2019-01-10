@@ -1,17 +1,17 @@
 {
   "name": "oas-wizard",
-  "version": "1.0.0",
-  "description": "OpenAPI Spec generator using a resource (json) schema as starting point",
+  "version": "2.0.0",
+  "description": "OpenAPI Spec generator using a (yaml) resource sample as starting point",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js ",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js "
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "commander": "^2.19.0",
     "js-yaml": "^3.12.0",
+    "json-schema-generator": "^2.0.6",
     "mustache": "^3.0.1"
   }
 }
