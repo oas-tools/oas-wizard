@@ -35,12 +35,8 @@ paths:
       description: Creates a new {{resource}}
       operationId: add{{Resource}}
       responses:
-        '200':
-          description: {{resource}} response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/{{resource}}'
+        '201':
+          description: {{resource}} created
         default:
           description: unexpected error
           content:
@@ -111,13 +107,21 @@ paths:
             type: string
       responses:
         '204':
-          description: {{resource}} deleted
+          description: {{resource}} updated
         default:
           description: unexpected error
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/errorModel'
+      requestBody:
+        x-name: {{resource}}
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/{{resource}}'
+        description: {{Resource}} to be updated
+        required: true
 components:
   schemas:
     errorModel:
