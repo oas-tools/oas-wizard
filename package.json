@@ -4,7 +4,8 @@
   "description": "OpenAPI Spec generator using a (yaml) resource sample as starting point",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js "
+    "start": "node index.js ",
+    "lint": "eslint index.js command.js"
   },
   "author": "",
   "license": "ISC",
@@ -13,5 +14,8 @@
     "js-yaml": "^3.12.0",
     "json-schema-generator": "^2.0.6",
     "mustache": "^3.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^6.2.2"
   }
 }
