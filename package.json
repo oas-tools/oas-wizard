@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js ",
-    "lint": "eslint index.js command.js"
+    "lint": "eslint index.js commands.js"
   },
   "author": "",
   "license": "ISC",
