@@ -170,12 +170,6 @@ module.exports = {
         "no-shadow": "off",
         "no-shadow-restricted-names": "error",
         "no-spaced-func": "error",
-        "no-sync": [
-            "error",
-            {
-                "allowAtRootLevel": true
-            }
-        ],
         "no-tabs": "error",
         "no-template-curly-in-string": "error",
         "no-ternary": "off",

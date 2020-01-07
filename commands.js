@@ -1,3 +1,5 @@
+"use strict";
+
 const fs = require('fs');
 const mustache = require('mustache');
 const yaml = require("js-yaml");
@@ -35,11 +37,11 @@ const createOAS = (oasFileName, ResourceSampleFileName, resourceName, idProperty
     const resourceSchema = jsonSchemaGenerator(yaml.load(fs.readFileSync(ResourceSampleFileName)));
 
     // Fix to remove "$schema" attribute in order to have compatibility with oas-generator OAS schema
-    delete resourceSchema["$schema"];
+    delete resourceSchema.$schema;
 
     oas.components.schemas[resourceName] = resourceSchema;
 
-    var output = yaml.safeDump(oas);
+    output = yaml.safeDump(oas);
 
     fs.writeFileSync(oasFileName, output, 'utf8');
 
@@ -47,4 +49,4 @@ const createOAS = (oasFileName, ResourceSampleFileName, resourceName, idProperty
 
 };
 
-module.exports = { createOAS };
+module.exports = {createOAS};

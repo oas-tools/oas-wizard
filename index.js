@@ -1,14 +1,15 @@
+"use strict";
 
 //Based on : https://scotch.io/tutorials/build-an-interactive-command-line-application-with-nodejs
 
 const program = require('commander');
-const package = require('./package.json');
+const packageJson = require('./package.json');
 
-const { createOAS } = require('./commands.js');
+const {createOAS} = require('./commands.js');
 
 program
-    .version(package.version)
-    .description(package.name + ": " + package.description);
+    .version(packageJson.version)
+    .description(packageJson.name + ": " + packageJson.description);
 
 program
     .usage('<OpenAPISpecFile.yaml> <ResourceSample.yaml> <ResourceName> <IdPropertyName>')
