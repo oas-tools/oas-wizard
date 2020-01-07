@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/isa-group/oas-wizard.svg?branch=integration)](https://travis-ci.org/isa-group/oas-wizard)
 
 *oas-wizard* is a simple OpenAPI Spec generator using a (yaml) resource sample as starting point
 
