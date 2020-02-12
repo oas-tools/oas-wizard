@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/isa-group/oas-wizard.svg?branch=master)](https://travis-ci.org/isa-group/oas-wizard)
+[![Build Status](https://travis-ci.org/isa-group/oas-wizard.svg?branch=master)](https://travis-ci.org/isa-group/oas-wizard) [![Greenkeeper badge](https://badges.greenkeeper.io/isa-group/oas-wizard.svg)](https://greenkeeper.io/)
 
 *oas-wizard* is a simple OpenAPI Spec generator using a (yaml) resource sample as starting point
 
