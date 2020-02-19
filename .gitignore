@@ -1,3 +1,6 @@
 node_modules
 sandbox.js
 sandbox
+
+# nyc test coverage
+.nyc_output/
