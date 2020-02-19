@@ -2,11 +2,22 @@ language: node_js
 node_js:
   - "8"
 sudo: required
+env:
+  global:
+    - CC_TEST_REPORTER_ID=3ea1bf004c3fc4004876e0a7784bd21766f4eebc94adf83291908b872235d7af
 
 install:
   - npm install
+
+before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
 
 script:
   - npm run lint
   - npm run coverage
   - codecov
+
+after_script:
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
