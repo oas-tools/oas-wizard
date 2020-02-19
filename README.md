@@ -1,6 +1,7 @@
 [![Build Status](https://travis-ci.org/isa-group/oas-wizard.svg?branch=master)](https://travis-ci.org/isa-group/oas-wizard) 
 [![Greenkeeper badge](https://badges.greenkeeper.io/isa-group/oas-wizard.svg)](https://greenkeeper.io/) 
-[![Known Vulnerabilities](https://snyk.io/test/github/isa-group/oas-wizard/badge.svg?targetFile=package.json)](https://snyk.io/test/github/isa-group/oas-wizard?targetFile=package.json)
+[![Known Vulnerabilities](https://snyk.io/test/github/isa-group/oas-wizard/badge.svg)](https://snyk.io/test/github/isa-group/oas-wizard)
+[![dependencies Status](https://david-dm.org/isa-group/oas-wizard.svg)](https://david-dm.org/isa-group/oas-wizard)
 
 *oas-wizard* is a simple OpenAPI Spec generator using a (yaml) resource sample as starting point
 
