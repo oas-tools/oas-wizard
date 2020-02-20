@@ -5,6 +5,7 @@
 [![Greenkeeper badge](https://badges.greenkeeper.io/isa-group/oas-wizard.svg)](https://greenkeeper.io/)
 [![Maintainability](https://api.codeclimate.com/v1/badges/826c4f28b9bc9e33e9fe/maintainability)](https://codeclimate.com/github/isa-group/oas-wizard/maintainability) 
 
+[![NPM](https://nodei.co/npm/oas-wizard.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/oas-wizard/)
 
 *oas-wizard* is a simple OpenAPI Spec generator using a (yaml) resource sample as starting point
 
