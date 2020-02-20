@@ -2,7 +2,9 @@
 [![dependencies Status](https://david-dm.org/isa-group/oas-wizard.svg)](https://david-dm.org/isa-group/oas-wizard)
 [![codecov](https://codecov.io/gh/isa-group/oas-wizard/branch/master/graph/badge.svg)](https://codecov.io/gh/isa-group/oas-wizard)
 [![Known Vulnerabilities](https://snyk.io/test/github/isa-group/oas-wizard/badge.svg)](https://snyk.io/test/github/isa-group/oas-wizard)
-[![Greenkeeper badge](https://badges.greenkeeper.io/isa-group/oas-wizard.svg)](https://greenkeeper.io/) 
+[![Greenkeeper badge](https://badges.greenkeeper.io/isa-group/oas-wizard.svg)](https://greenkeeper.io/)
+[![Maintainability](https://api.codeclimate.com/v1/badges/826c4f28b9bc9e33e9fe/maintainability)](https://codeclimate.com/github/isa-group/oas-wizard/maintainability) 
+
 
 *oas-wizard* is a simple OpenAPI Spec generator using a (yaml) resource sample as starting point
 
