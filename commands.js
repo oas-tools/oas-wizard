@@ -47,6 +47,8 @@ const createOAS = (oasFileName, ResourceSampleFileName, resourceName, idProperty
 
     console.log("Done.");
 
+    return output;
+
 };
 
 module.exports = {createOAS};
