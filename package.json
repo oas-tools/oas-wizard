@@ -14,7 +14,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "commander": "^4.1.1",
+    "commander": "^5.0.0",
     "js-yaml": "^3.13.1",
     "json-schema-generator": "^2.0.6",
     "mustache": "^4.0.0",
