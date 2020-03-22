@@ -23,9 +23,9 @@ species: dog
 breed: beagle
 age: 7
 ```
- - Use *oas-wizard* to generate the OAS spec (`tests/pet-oas.yaml`) based on the sample file (`tests/static/petSample.yaml`) using as resouce name `pet` with the id property `name`
+ - Use *oas-wizard* to generate the OAS spec (`tests/pet-oas.yaml`) based on the sample file (`tests/static/pet/petSample.yaml`) using as resouce name `pet` with the id property `name`
    ```bash
-   node index tests/pet-oas.yaml tests/static/petSample.yaml pet name
+   node index tests/pet-oas.yaml tests/static/pet/petSample.yaml pet name
    ```
  - Generate a server scaffolding with  https://www.npmjs.com/package/oas-generator (using node v8 or up) 
    ```bash
