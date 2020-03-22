@@ -40,6 +40,6 @@
     ]
   },
   "bin": {
-    "oas-generator": "./src/index.js"
+    "oas-wizard": "./index.js"
   }
 }
