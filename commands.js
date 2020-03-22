@@ -39,15 +39,19 @@ const createOAS = (oasFileName, ResourceSampleFileName, resourceName, idProperty
     // Fix to remove "$schema" attribute in order to have compatibility with oas-generator OAS schema
     delete resourceSchema.$schema;
 
+    // Empty description
+    delete resourceSchema.description;
+
     oas.components.schemas[resourceName] = resourceSchema;
 
     output = yaml.safeDump(oas);
 
+    // Fix to remove string unneeded ' on Open API 3.0.0
+    output = output.replace(/'/g, "").replace(/#[A-z/]+/g, x => "'" + x + "'");
+
     fs.writeFileSync(oasFileName, output, 'utf8');
 
     console.log("Done.");
-
-    return output;
 
 };
 
