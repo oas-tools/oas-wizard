@@ -1,6 +1,6 @@
 {
   "name": "oas-wizard",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "OpenAPI Spec generator using a (yaml) resource sample as starting point",
   "main": "index.js",
   "scripts": {
@@ -18,7 +18,7 @@
     "js-yaml": "^3.13.1",
     "json-schema-generator": "^2.0.6",
     "mustache": "^4.0.0",
-    "snyk": "^1.291.0"
+    "snyk": "^1.303.0"
   },
   "devDependencies": {
     "codecov": "^3.6.5",
@@ -41,5 +41,6 @@
   },
   "bin": {
     "oas-wizard": "./index.js"
-  }
+  },
+  "preferGlobal": true
 }
