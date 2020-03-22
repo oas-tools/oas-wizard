@@ -47,7 +47,7 @@ const createOAS = (oasFileName, ResourceSampleFileName, resourceName, idProperty
     output = yaml.safeDump(oas);
 
     // Fix to remove string unneeded ' on Open API 3.0.0
-    output = output.replace(/'/g, "").replace(/#[A-z/]+/g, x => "'" + x + "'");
+    output = output.replace(/'/g, "").replace(/#[A-z/]+/g, (x) => "'" + x + "'");
 
     fs.writeFileSync(oasFileName, output, 'utf8');
 
