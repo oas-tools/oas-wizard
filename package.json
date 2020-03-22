@@ -9,7 +9,7 @@
     "snyk-protect": "snyk protect",
     "prepare": "npm run snyk-protect",
     "test": "mocha ./tests/test.js",
-    "coverage": "nyc mocha ./test/test.js"
+    "coverage": "nyc mocha ./tests/test.js"
   },
   "author": "",
   "license": "ISC",
