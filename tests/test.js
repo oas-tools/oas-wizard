@@ -1,24 +1,39 @@
 var assert = require('assert');
 
 var commands = require('./../commands.js');
-const yaml = require("js-yaml");
 var fs = require('fs');
 
 describe('Array', function () {
-    describe('#indexOf()', function () {
-        it('should return -1 when the value is not present', function () {
-            assert.equal([1, 2, 3].indexOf(4), -1);
+    describe('#createOAS()', function () {
+        it('should equal the known good example (contact)', function () {
+            // Generation of OAS
+            var generatedFileName = './tests/contactOAS.yaml';
+            commands.createOAS(generatedFileName, "./tests/static/contact/contactSample.yaml", "contact", "nick")
+
+            // Read of generated file with known good example file
+            var oasGenerated = fs.readFileSync(generatedFileName, 'utf8');
+            var oasExample = fs.readFileSync('./tests/static/contact/contactOAS.yaml', 'utf8');
+
+            // Assert and removal of file
+            assert.equal(oasGenerated, oasExample);
+            fs.unlinkSync(generatedFileName);
         });
     });
 
     describe('#createOAS()', function () {
-        it('should return something', function () {
-            var output = commands.createOAS('./tests/pet-oas.yaml', 
-                "./tests/static/petSample.yaml",
-                "pet", 
-                "name");
-            assert.equal(typeof output, typeof yaml.safeDump(""));
-            fs.unlinkSync('./tests/pet-oas.yaml');
+        it('should equal the known good example (pet)', function () {
+            // Generation of OAS
+            var generatedFileName = './tests/petOAS.yaml';
+            commands.createOAS(generatedFileName, "./tests/static/pet/petSample.yaml", "pet", "name")
+
+            // Read of generated file with known good example file
+            var oasGenerated = fs.readFileSync(generatedFileName, 'utf8');
+            var oasExample = fs.readFileSync('./tests/static/pet/petOAS.yaml', 'utf8');
+
+            // Assert and removal of file
+            assert.equal(oasGenerated, oasExample);
+            fs.unlinkSync(generatedFileName);
         });
     });
 });
+
