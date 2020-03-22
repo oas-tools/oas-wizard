@@ -7,12 +7,12 @@ info:
   contact:
     name: PabloFM
     email: pablofm@us.es
-    url: "http://www.isa.us.es"
+    url: http://www.isa.us.es
   license:
     name: MIT
-    url: 'http://opensource.org/licenses/MIT'
+    url: http://opensource.org/licenses/MIT
 paths:
-  "/api/v1/{{resources}}":
+  /api/v1/{{resources}}:
     get:
       description: Returns all {{resources}} 
       operationId: get{{Resources}}
@@ -51,7 +51,7 @@ paths:
               $ref: '#/components/schemas/{{resource}}'
         description: {{Resource}} to be created
         required: true
-  "/api/v1/{{resources}}/_#{#_{{resourceId}}_#}#_":
+  /api/v1/{{resources}}/_#{#_{{resourceId}}_#}#_:
     get:
       description: >-
         Returns a {{resource}} by {{resourceId}}
