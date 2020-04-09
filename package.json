@@ -30,7 +30,7 @@
   "nyc": {
     "exclude": [
       "node_modules",
-      "test/**/*.js"
+      "tests/**.js"
     ],
     "reporter": [
       "json",

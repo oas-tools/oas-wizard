@@ -2,38 +2,44 @@ var assert = require('assert');
 
 var commands = require('./../commands.js');
 var fs = require('fs');
+var yaml = require('js-yaml')
+
+var toDelete = [];
+var testsData = [ // [output, input, resourceName, idPropertyName, outputExample]
+    ['./tests/contactOAS.yaml', "./tests/static/contact/contactSample.yaml", "contact", "nick", './tests/static/contact/contactOAS.yaml'],
+    ['./tests/petOAS.yaml', "./tests/static/pet/petSample.yaml", "pet", "name", './tests/static/pet/petOAS.yaml']
+]
 
 describe('Array', function () {
-    describe('#createOAS()', function () {
-        it('should equal the known good example (contact)', function () {
-            // Generation of OAS
-            var generatedFileName = './tests/contactOAS.yaml';
-            commands.createOAS(generatedFileName, "./tests/static/contact/contactSample.yaml", "contact", "nick")
 
-            // Read of generated file with known good example file
-            var oasGenerated = fs.readFileSync(generatedFileName, 'utf8');
-            var oasExample = fs.readFileSync('./tests/static/contact/contactOAS.yaml', 'utf8');
+    for (let testData of testsData){
+        describe('#createOAS(' + testData[2] + ')', function () {
+            it('should equal the known good example (' + testData[2] + ')', function (done) {
+                try {
+                    // Generation of OAS
+                    commands.createOAS(...[...testData].splice(0,4));
+                    toDelete.push(testData[0]);
 
-            // Assert and removal of file
-            assert.equal(oasGenerated, oasExample);
-            fs.unlinkSync(generatedFileName);
+                    // Read of generated file with known good example file
+                    var oasGenerated = yaml.safeLoad(fs.readFileSync(testData[0], 'utf8'));
+                    var oasExample = yaml.safeLoad(fs.readFileSync(testData[4], 'utf8'));
+
+                    // Assert and removal of file
+                    assert.deepStrictEqual(oasGenerated, oasExample);
+
+                    done();
+                } catch (err) {
+                    assert.fail(err.message);
+                }
+            });
         });
-    });
+    }
 
-    describe('#createOAS()', function () {
-        it('should equal the known good example (pet)', function () {
-            // Generation of OAS
-            var generatedFileName = './tests/petOAS.yaml';
-            commands.createOAS(generatedFileName, "./tests/static/pet/petSample.yaml", "pet", "name")
-
-            // Read of generated file with known good example file
-            var oasGenerated = fs.readFileSync(generatedFileName, 'utf8');
-            var oasExample = fs.readFileSync('./tests/static/pet/petOAS.yaml', 'utf8');
-
-            // Assert and removal of file
-            assert.equal(oasGenerated, oasExample);
-            fs.unlinkSync(generatedFileName);
-        });
+    after((done) => {
+        for (let filename of toDelete){
+            fs.unlinkSync(filename);
+        }
+        done();
     });
 });
 
