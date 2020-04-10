@@ -7,7 +7,7 @@
 
 [![NPM](https://nodei.co/npm/oas-wizard.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/oas-wizard/)
 
-*oas-wizard* is a simple OpenAPI Spec generator using a (yaml) resource sample as starting point
+This tool, *oas-wizard*, is a simple OpenAPI Spec generator using a *.yaml* resource sample as starting point.
 
 ## Usage
 Install oas-wizard globally:
@@ -17,12 +17,12 @@ npm install -g oas-wizard
 
 The command sintax is the following:
 ```bash
-oas-wizard <OpenAPISpecFile.yaml> <ResourceSampleFile.yaml> <Prefix> <ResourceName> <IdPropertyName>
+oas-wizard <OpenAPISpecFile.yaml> <ResourceSampleFile.yaml> <ResourceName> <IdPropertyName>
 ```
 
-You can also clone this repository and use the following command sintax: 
+You can also run it without installing with *npx*: 
 ```bash
-node index <OpenAPISpecFile.yaml> <ResourceSampleFile.yaml> <Prefix> <ResourceName> <IdPropertyName>
+npx oas-wizard <OpenAPISpecFile.yaml> <ResourceSampleFile.yaml> <ResourceName> <IdPropertyName>
 ```
 
 ## Thirty seconds tutorial - From zero to REST server!
@@ -30,15 +30,21 @@ In this tutorial, you will be able to generate a RESTful API server in just thre
 
 1. Clone our tutorial folder to obtain an example input file for the tool:
 
-   `npx degit https://github.com/isa-group/oas-wizard/tutorial`
+   ```bash
+   npx degit https://github.com/isa-group/oas-wizard/tutorial
+   ```
 
-2. Use this tool to generate the openAPI specification with one of the tutorial files downloaded:
+2. Use this tool to generate the openAPI specification with one of the tutorial resource sample files downloaded:
 
-   `npx oas-wizard ./pet-oas.yaml ./petSample.yaml pet name`
+   ```bash
+   npx oas-wizard pet-oas.yaml petSample.yaml pet name
+   ```
 
-3. Use [oas-generator](https://github.com/isa-group/oas-generator), to generate the server from the OAS generated:
+3. Use [oas-generator](https://github.com/isa-group/oas-generator), to generate the server from the OAS file generated:
 
-   `npx oas-generator ./pet-oas.yaml -n petServer`
+   ```bash
+   npx oas-generator pet-oas.yaml -n petServer
+   ```
 
 Now to run the server just access the `petServer` folder and run `npm start`. Once the dependencies are installed access `localhost:8080/docs` to see the SwaggerUI API documentation.  
 
@@ -62,7 +68,9 @@ This tool is expected to be used in combination with others; as an example we pr
    cd contactServer
    npm start
    ```
-You should have a fully working API server mockup up and running in port 8080. Check the SwaggerUI API documentation at `localhost:8080/docs`. Now it's your turn to implement the controllers for each operation (files `controllers/*Service.js`).
+You should have a fully working API server mockup up and running in port 8080. Check the SwaggerUI API documentation at `localhost:8080/docs`. 
+
+Now it's your turn to implement the controllers for each operation (files `controllers/*Service.js`).
 
 Enjoy your API!
  
