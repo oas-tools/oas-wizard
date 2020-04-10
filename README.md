@@ -40,31 +40,29 @@ In this tutorial, you will be able to generate a RESTful API server in just thre
 
    `npx oas-generator ./pet-oas.yaml -n petServer`
 
-Now to run the server just access the `petServer` folder and run `npm start`. Once the dependencies are installed the server will be running on localhost:8080/docs.  
+Now to run the server just access the `petServer` folder and run `npm start`. Once the dependencies are installed access `localhost:8080/docs` to see the SwaggerUI API documentation.  
 
-## Use Case
+## Five minutes tutorial - Create your own RESTful API
 This tool is expected to be used in combination with others; as an example we propose the following lifecycle:
- - Think about an example of resource and write it in yaml (e.g. `petSample.yaml`)
-    ```yml
-    name: rocket
-    owner: paul
-    species: dog
-    breed: beagle
-    age: 7
-    ```
- - Use *oas-wizard* to generate the OAS spec (`tests/pet-oas.yaml`) based on the sample file (`tests/static/pet/petSample.yaml`) using as resouce name `pet` with the id property `name`
-    ```bash
-    node index tests/pet-oas.yaml tests/static/pet/petSample.yaml pet name
-    ```
- - Generate a server scaffolding with  https://www.npmjs.com/package/oas-generator (using node v8 or up) 
-    ```bash
-    npm install -g oas-generator
-    cd tests
-    oas-generator pet-oas.yaml -n pet-api
-    cd pet-api
-    npm start
-    ```
-- Now you have a fully working API server mockup up and running in port 8080. You can check the SwaggerUI API documentation `localhost:8080/docs`
-- Implement the controllers for each operation (files  `controllers/*Service.js`).
-- Enjoy your API!
+1. Think about an example of resource and write it in yaml (e.g. `contactSample.yaml`)
+   ```yml
+   nick: Peter
+   phone: 123456
+   email: "peter@peter.org"
+   ```
+2. Use *oas-wizard* to generate the OAS spec (e.g. `contact-oas.yaml`) based on the sample file you created using with a resource name and the id property:
+   ```bash
+   oas-wizard contact-oas.yaml contactSample.yaml contact nick
+   ```
+
+3. Generate a server scaffolding with  [oas-generator](https://www.npmjs.com/package/oas-generator) (using node v8 or up) 
+   ```bash
+   npm install -g oas-generator
+   oas-generator contact-oas.yaml -n contactServer
+   cd contactServer
+   npm start
+   ```
+You should have a fully working API server mockup up and running in port 8080. Check the SwaggerUI API documentation at `localhost:8080/docs`. Now it's your turn to implement the controllers for each operation (files `controllers/*Service.js`).
+
+Enjoy your API!
  
