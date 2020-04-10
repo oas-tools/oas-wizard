@@ -25,6 +25,23 @@ You can also clone this repository and use the following command sintax:
 node index <OpenAPISpecFile.yaml> <ResourceSampleFile.yaml> <Prefix> <ResourceName> <IdPropertyName>
 ```
 
+## Thirty seconds tutorial - From zero to REST server!
+In this tutorial, you will be able to generate a RESTful API server in just three commands (Node.js required). Let's start:
+
+1. Clone our tutorial folder to obtain an example input file for the tool:
+
+   `npx degit https://github.com/isa-group/oas-wizard/tutorial`
+
+2. Use this tool to generate the openAPI specification with one of the tutorial files downloaded:
+
+   `npx oas-wizard ./pet-oas.yaml ./petSample.yaml pet name`
+
+3. Use [oas-generator](https://github.com/isa-group/oas-generator), to generate the server from the OAS generated:
+
+   `npx oas-generator ./pet-oas.yaml -n petServer`
+
+Now to run the server just access the `petServer` folder and run `npm start`. Once the dependencies are installed the server will be running on localhost:8080/docs.  
+
 ## Use Case
 This tool is expected to be used in combination with others; as an example we propose the following lifecycle:
  - Think about an example of resource and write it in yaml (e.g. `petSample.yaml`)
