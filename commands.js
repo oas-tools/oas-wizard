@@ -1,11 +1,14 @@
+#!/usr/bin/env node
+
 "use strict";
 
 const fs = require('fs');
+const path = require('path');
 const mustache = require('mustache');
 const yaml = require("js-yaml");
 const jsonSchemaGenerator = require('json-schema-generator');
 
-const template = fs.readFileSync('./templates/basic.yaml', "utf8");
+const template = fs.readFileSync(path.join(__dirname, './templates/basic.yaml'), "utf8");
 
 /**
  * @function  [createOAS]
