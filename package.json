@@ -22,7 +22,7 @@
     "js-yaml": "^3.13.1",
     "json-schema-generator": "^2.0.6",
     "mustache": "^4.0.0",
-    "snyk": "^1.303.0"
+    "snyk": "^1.315.1"
   },
   "devDependencies": {
     "codecov": "^3.6.5",
