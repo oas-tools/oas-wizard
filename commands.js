@@ -28,6 +28,7 @@ const createOAS = (oasFileName, ResourceSampleFileName, resourceName, idProperty
     parameters.Resources = parameters.Resource + "s";
 
     parameters.resourceId = idPropertyName;
+    /* Author Oliver Glas, fix to add example values. */
     var theYaml = yaml.load(fs.readFileSync(ResourceSampleFileName));
     const resourceSchema = jsonSchemaGenerator(theYaml);
     var list = [];
@@ -37,6 +38,9 @@ const createOAS = (oasFileName, ResourceSampleFileName, resourceName, idProperty
         map.key = key;
         map.value = value;
         map.type = resourceSchema.properties[key].type;
+        if ( resourceSchema.properties[key].type != "number"){
+            map.minlength = true;
+        }
         list.push(map);
     }
     parameters.data = list;

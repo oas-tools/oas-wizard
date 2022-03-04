@@ -141,11 +141,14 @@ components:
         nick:
           type: string
           minLength: 1
+          example: Peter
         phone:
           type: number
+          example: 123456
         email:
           type: string
           minLength: 1
+          example: peter@peter.org
       required:
         - nick
         - phone

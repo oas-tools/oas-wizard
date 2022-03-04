@@ -141,17 +141,22 @@ components:
         name:
           type: string
           minLength: 1
+          example: rufo
         owner:
           type: string
           minLength: 1
+          example: peter
         species:
           type: string
           minLength: 1
+          example: dog
         breed:
           type: string
           minLength: 1
+          example: beagle
         age:
           type: number
+          example: 7
       required:
         - name
         - owner

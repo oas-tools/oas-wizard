@@ -135,12 +135,14 @@ components:
           format: int32
         message:
           type: string
-    {{Resource}}:
+    {{resource}}:
       type: object
       properties:
       {{#data}}
         {{key}}:
           type: {{type}}
-          minLength: 1
+          {{#minlength}}minLength: 1{{/minlength}}
           example: {{value}}
         {{/data}}
+      required: {{#data}}
+      - {{key}}{{/data}}
