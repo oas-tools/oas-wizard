@@ -33,7 +33,8 @@ const createOAS = (oasFileName, ResourceSampleFileName, resourceName, idProperty
     for ( let key in theYaml ){
         let value = theYaml[key];
         let map = {};
-        map.key = value;
+        map.key = key;
+        map.value = value;
         list.push(map);
     }
     parameters.data = list;
