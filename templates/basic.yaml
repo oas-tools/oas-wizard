@@ -140,7 +140,7 @@ components:
       properties:
       {{#data}}
         {{key}}:
-          type: string
+          type: {{type}}
           minLength: 1
           example: {{value}}
         {{/data}}

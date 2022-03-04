@@ -29,12 +29,14 @@ const createOAS = (oasFileName, ResourceSampleFileName, resourceName, idProperty
 
     parameters.resourceId = idPropertyName;
     var theYaml = yaml.load(fs.readFileSync(ResourceSampleFileName));
+    const resourceSchema = jsonSchemaGenerator(theYaml);
     var list = [];
     for ( let key in theYaml ){
         let value = theYaml[key];
         let map = {};
         map.key = key;
         map.value = value;
+        map.type = resourceSchema.properties[key].type;
         list.push(map);
     }
     parameters.data = list;
@@ -45,17 +47,6 @@ const createOAS = (oasFileName, ResourceSampleFileName, resourceName, idProperty
     output = output.replace(/_#}#_/g, "}");
 
     var oas = yaml.load(output);
-
-    //const resourceSchema = jsonSchemaGenerator(yaml.load(fs.readFileSync(ResourceSampleFileName)));
-    //const resourceSchema = jsonSchemaGenerator(theYaml);
-
-    // Fix to remove "$schema" attribute in order to have compatibility with oas-generator OAS schema
-    //delete resourceSchema.$schema;
-
-    // Empty description
-    //delete resourceSchema.description;
-
-    //oas.components.schemas[resourceName] = resourceSchema;
 
     output = yaml.safeDump(oas);
 
