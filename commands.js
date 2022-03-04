@@ -28,7 +28,15 @@ const createOAS = (oasFileName, ResourceSampleFileName, resourceName, idProperty
     parameters.Resources = parameters.Resource + "s";
 
     parameters.resourceId = idPropertyName;
-
+    var theYaml = yaml.load(fs.readFileSync(ResourceSampleFileName));
+    var list = [];
+    for ( let key in theYaml ){
+        let value = theYaml[key];
+        let map = {};
+        map.key = value;
+        list.push(map);
+    }
+    parameters.data = list;
     var output = mustache.render(template, parameters);
 
     // Fix for moustache problem with path parameters 
@@ -37,15 +45,16 @@ const createOAS = (oasFileName, ResourceSampleFileName, resourceName, idProperty
 
     var oas = yaml.load(output);
 
-    const resourceSchema = jsonSchemaGenerator(yaml.load(fs.readFileSync(ResourceSampleFileName)));
+    //const resourceSchema = jsonSchemaGenerator(yaml.load(fs.readFileSync(ResourceSampleFileName)));
+    //const resourceSchema = jsonSchemaGenerator(theYaml);
 
     // Fix to remove "$schema" attribute in order to have compatibility with oas-generator OAS schema
-    delete resourceSchema.$schema;
+    //delete resourceSchema.$schema;
 
     // Empty description
-    delete resourceSchema.description;
+    //delete resourceSchema.description;
 
-    oas.components.schemas[resourceName] = resourceSchema;
+    //oas.components.schemas[resourceName] = resourceSchema;
 
     output = yaml.safeDump(oas);
 

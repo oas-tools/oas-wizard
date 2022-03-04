@@ -135,3 +135,12 @@ components:
           format: int32
         message:
           type: string
+    {{Resource}}:
+      type: object
+      properties:
+      {{#data}}
+        {{key}}:
+          type: string
+          minLength: 1
+          example: {{value}}
+        {{/data}}
