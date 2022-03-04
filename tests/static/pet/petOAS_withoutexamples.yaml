@@ -1,0 +1,166 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Pet list
+  description: >-
+    This is an OpenAPI Specification created by oas-wizard
+    (https://github.com/pafmon/oas-wizard)  
+  contact:
+    name: PabloFM
+    email: pablofm@us.es
+    url: http://www.isa.us.es
+  license:
+    name: MIT
+    url: http://opensource.org/licenses/MIT
+paths:
+  /api/v1/pets:
+    get:
+      description: Returns all pets
+      operationId: getPets
+      responses:
+        200:
+          description: Pet List
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/pet'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorModel'
+    post:
+      description: Creates a new pet
+      operationId: addPet
+      responses:
+        201:
+          description: pet created
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorModel'
+      requestBody:
+        x-name: pet
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/pet'
+        description: Pet to be created
+        required: true
+  /api/v1/pets/{name}:
+    get:
+      description: Returns a pet by name
+      operationId: findPetByname
+      parameters:
+        - name: name
+          in: path
+          description: name of pet to fetch
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Pet returned
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/pet'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorModel'
+    delete:
+      description: deletes a single pet based on the name
+      operationId: deletePet
+      parameters:
+        - name: name
+          in: path
+          description: ID of pet to delete
+          required: true
+          schema:
+            type: string
+      responses:
+        204:
+          description: pet deleted
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorModel'
+    put:
+      description: Update a pet based on its name
+      operationId: updatePet
+      parameters:
+        - name: name
+          in: path
+          description: ID of pet to put
+          required: true
+          schema:
+            type: string
+      responses:
+        204:
+          description: pet updated
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorModel'
+      requestBody:
+        x-name: pet
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/pet'
+        description: Pet to be updated
+        required: true
+components:
+  schemas:
+    errorModel:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+    pet:
+      type: object
+      properties:
+        name:
+          type: string
+          minLength: 1
+          example: rufo
+        owner:
+          type: string
+          minLength: 1
+          example: peter
+        species:
+          type: string
+          minLength: 1
+          example: dog
+        breed:
+          type: string
+          minLength: 1
+          example: beagle
+        age:
+          type: number
+          minLength: 1
+          example: 7
+      required:
+        - name
+        - owner
+        - species
+        - breed
+        - age
