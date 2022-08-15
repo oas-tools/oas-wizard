@@ -1,3 +1,9 @@
+> **Warning**
+>
+> This package is now included in [OAS Tools CLI](https://github.com/oas-tools/oas-cli). Check the [docs](https://oas-tools.github.io/docs/cli) for more info.
+
+<br>
+
 [![Build Status](https://travis-ci.org/isa-group/oas-wizard.svg?branch=master)](https://travis-ci.org/isa-group/oas-wizard) 
 [![dependencies Status](https://david-dm.org/isa-group/oas-wizard.svg)](https://david-dm.org/isa-group/oas-wizard)
 [![codecov](https://codecov.io/gh/isa-group/oas-wizard/branch/master/graph/badge.svg)](https://codecov.io/gh/isa-group/oas-wizard)
